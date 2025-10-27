@@ -67,6 +67,9 @@ python ai_agent.py
 
 <img width="1117" height="755" alt="Hotel and Weather Details" src="https://github.com/user-attachments/assets/81e5abb0-e62c-4007-b252-a75f44a96b98" />
 
+<img width="1255" height="772" alt="Itineary Generator" src="https://github.com/user-attachments/assets/fa2137a7-75a7-4a54-8417-be5e5219438e" />
+
+
 
  Future Enhancements
 
