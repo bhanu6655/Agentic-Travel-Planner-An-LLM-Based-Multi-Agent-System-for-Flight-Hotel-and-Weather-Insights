@@ -48,7 +48,7 @@ def ask_flight_agent(user_query):
     if response.status_code == 200:
         return response.json()["choices"][0]["message"]["content"]
     else:
-        return f"✈️ Flight Agent Error: {response.status_code} - {response.text}"
+        return f"Flight Agent Error: {response.status_code} - {response.text}"
 
 # --------------------------- HOTEL AGENT --------------------------- #
 
@@ -80,7 +80,7 @@ def ask_hotel_agent(user_query):
     if response.status_code == 200:
         return response.json()["choices"][0]["message"]["content"]
     else:
-        return f"🏨 Hotel Agent Error: {response.status_code} - {response.text}"
+        return f"Hotel Agent Error: {response.status_code} - {response.text}"
 
 # --------------------------- WEATHER AGENT --------------------------- #
 
@@ -101,7 +101,7 @@ def ask_weather_agent(city, date=None):
             if "forecast" in data and data["forecast"]["forecastday"]:
                 day_data = data["forecast"]["forecastday"][0]["day"]
                 return f"""
-🌦️ **Weather Forecast for {city} ({date}):**
+ **Weather Forecast for {city} ({date}):**
 - Condition: {day_data['condition']['text']}
 - Avg Temp: {day_data['avgtemp_c']}°C
 - Max Temp: {day_data['maxtemp_c']}°C
@@ -109,11 +109,11 @@ def ask_weather_agent(city, date=None):
 - Rain Chance: {day_data['daily_chance_of_rain']}%
 """
             else:
-                return f"⚠️ Forecast data not available for {date}. (Free tier supports only 3-day forecasts.)"
+                return f" Forecast data not available for {date}. (Free tier supports only 3-day forecasts.)"
         else:
             current = data["current"]
             return f"""
-🌤️ **Current Weather in {city}:**
+ **Current Weather in {city}:**
 - Condition: {current['condition']['text']}
 - Temperature: {current['temp_c']}°C
 - Feels Like: {current['feelslike_c']}°C
@@ -121,7 +121,7 @@ def ask_weather_agent(city, date=None):
 - Wind: {current['wind_kph']} km/h
 """
     else:
-        return f"🌧️ Weather Agent Error: {response.status_code} - {response.text}"
+        return f" Weather Agent Error: {response.status_code} - {response.text}"
 
 # --------------------------- ITINERARY GENERATOR AGENT --------------------------- #
 
@@ -163,37 +163,37 @@ Weather Info: {weather_info}
     else:
         return f"🧳 Itinerary Agent Error: {response.status_code} - {response.text}"
 
-# --------------------------- MASTER TRAVEL ASSISTANT --------------------------- #
+
 
 def travel_assistant(user_query):
     """Route queries to the correct agent."""
     if any(word in user_query.lower() for word in ["flight", "airline", "ticket"]):
-        return "✈️ Flight Agent:\n" + ask_flight_agent(user_query)
+        return "Flight Agent:\n" + ask_flight_agent(user_query)
     elif any(word in user_query.lower() for word in ["hotel", "stay", "room"]):
-        return "🏨 Hotel Agent:\n" + ask_hotel_agent(user_query)
+        return " Hotel Agent:\n" + ask_hotel_agent(user_query)
     elif any(word in user_query.lower() for word in ["weather", "forecast"]):
-        return "🌦️ Weather Agent:\n" + ask_weather_agent(user_query)
+        return " Weather Agent:\n" + ask_weather_agent(user_query)
     else:
-        return "🤖 Please specify whether you want flight, hotel, or weather details."
+        return "Please specify whether you want flight, hotel, or weather details."
 
-# --------------------------- MAIN EXECUTION --------------------------- #
+
 
 if __name__ == "__main__":
-    # Example queries
+
     query1 = "Find me a flight from Hyderabad to Delhi on 15th April 2025 under $100."
     flight_info = ask_flight_agent(query1)
-    print(f"✈️ Flight Agent:\n{flight_info}\n")
+    print(f" Flight Agent:\n{flight_info}\n")
 
     query2 = "Find me 3 affordable hotels in Delhi near Connaught Place for 2 nights in April 2025."
     hotel_info = ask_hotel_agent(query2)
-    print(f"🏨 Hotel Agent:\n{hotel_info}\n")
+    print(f" Hotel Agent:\n{hotel_info}\n")
 
     city = "Delhi"
     date = "2025-04-15"
     weather_info = ask_weather_agent(city, date)
-    print(f"🌦️ Weather Agent:\n{weather_info}\n")
+    print(f" Weather Agent:\n{weather_info}\n")
 
-    # Generate full itinerary
+  
     itinerary = generate_itinerary(destination="Delhi", start_date="2025-04-15", duration_days=4,
                                    flight_info=flight_info, hotel_info=hotel_info, weather_info=weather_info)
-    print(f"🧳 Itinerary Generator:\n{itinerary}")
+    print(f" Itinerary Generator:\n{itinerary}")
