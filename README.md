@@ -26,18 +26,7 @@ Uses .env file to safely manage all API keys and credentials.
 
 Each agent is independent and easily replaceable — you can plug in new APIs or AI models without affecting the rest of the system.
 
- System Architecture
-+------------------------------------------+
-|              AI Travel Agent             |
-+------------------------------------------+
-|  Flight Agent       Hotel Agent      |
-|   Weather Agent      Budget Planner   |
-+------------------------------------------+
-|         LLM (Groq / Gemini APIs)         |
-|        Weather API (weatherapi.com)      |
-+------------------------------------------+
-|            Python Backend (CLI)          |
-+------------------------------------------+
+<img width="853" height="375" alt="image" src="https://github.com/user-attachments/assets/a62aced6-94ef-4f56-8f37-e14d19a77e13" />
 
 
 Each module communicates with its respective API or AI model and collaborates through the central travel assistant logic.
