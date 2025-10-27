@@ -59,6 +59,8 @@ WEATHER_API_KEY=your_weatherapi_key_here
 python ai_agent.py
 
  Example Output
+ <img width="867" height="538" alt="flight Details" src="https://github.com/user-attachments/assets/db4a1046-3df4-4486-88c1-55b2dd15e14e" />
+
 <img width="1117" height="755" alt="Hotel and Weather Details" src="https://github.com/user-attachments/assets/81e5abb0-e62c-4007-b252-a75f44a96b98" />
 
 
