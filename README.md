@@ -31,7 +31,7 @@ Each agent is independent and easily replaceable — you can plug in new APIs or
 
 Each module communicates with its respective API or AI model and collaborates through the central travel assistant logic.
 
-🛠️ Tech Stack
+Tech Stack
 Category	Tools / APIs
 Programming Language	Python 3.10+
 AI Models	Groq API (Llama3 successor), Google Gemini
@@ -39,7 +39,9 @@ Weather Data	WeatherAPI.com
 
 Environment Management	python-dotenv
 Version Control	Git, GitHub
-⚙️ Setup Instructions
+
+
+Setup Instructions
 1️ Clone the Repository
 git clone https://github.com/bhanu6655/Flight-Tracker-ai-agent.git
 cd Flight-Tracker-ai-agent
@@ -80,7 +82,7 @@ python ai_agent.py
 
  Contributing
 
-Fork the repo 🍴
+Fork the repo 
 
 Create a feature branch
 
